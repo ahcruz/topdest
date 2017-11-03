@@ -32,5 +32,28 @@ namespace CoreProvider.SharedClasses.Interface
         /// Ocupacion
         /// </summary>
         Occupancy Occupancy { get; set; }
+
+        /// <summary>
+        /// Lista de politicas de cancelacion
+        /// </summary>
+        IList<CancellationPolicy> CancellationPolicies { get; set; }
+    }
+
+    public class CancellationPolicy
+    {
+        /// <summary>
+        /// Fecha en que entra en vigencia la politica
+        /// </summary>
+        public DateTime BeginPolicy { get; set; }
+
+        /// <summary>
+        /// Descripcion de la politica
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Precio a pagar por entrar en politicas de cancelacion
+        /// </summary>
+        public double Price { get; set; }
     }
 }
