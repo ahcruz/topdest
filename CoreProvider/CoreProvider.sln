@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreProvider.SharedClasses"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreProvider.Repository", "CoreProvider.Repository\CoreProvider.Repository.csproj", "{C78FE0C6-7565-44DA-A311-4DF2AD7424FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreProvider.DataAccess", "CoreProvider.DataAccess\CoreProvider.DataAccess.csproj", "{4A2F7C26-BF3E-4F2F-BC02-7DCFAD5E232A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{C78FE0C6-7565-44DA-A311-4DF2AD7424FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C78FE0C6-7565-44DA-A311-4DF2AD7424FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C78FE0C6-7565-44DA-A311-4DF2AD7424FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A2F7C26-BF3E-4F2F-BC02-7DCFAD5E232A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2F7C26-BF3E-4F2F-BC02-7DCFAD5E232A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2F7C26-BF3E-4F2F-BC02-7DCFAD5E232A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2F7C26-BF3E-4F2F-BC02-7DCFAD5E232A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
