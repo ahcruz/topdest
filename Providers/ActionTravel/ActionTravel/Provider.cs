@@ -28,7 +28,8 @@ namespace ActionTravel
                             Description = "All Inclusive",
                             Price = 50
                         }
-                    }
+                    },
+                    ProviderId = "Estas en un hotel de action travel"
                 },
                 new HotelService()
                 {

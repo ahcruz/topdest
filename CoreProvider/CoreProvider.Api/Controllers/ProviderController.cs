@@ -10,7 +10,6 @@ namespace CoreProvider.Api.Controllers
             var searchManager = new SearchManager();
 
             var result = searchManager.GetSearch();
-
             return Ok(new { result });
         }
     }
