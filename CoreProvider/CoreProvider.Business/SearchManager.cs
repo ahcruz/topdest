@@ -9,9 +9,28 @@ namespace CoreProvider.Business
     {
         public IList<HotelService> GetSearch()
         {
-            var at = (IProvider)GetProviderType();
+            var providers = GetProvidersType();
+            var hotelServices = new List<HotelService>();
 
-            return at.Search(new SearchData());
+            foreach (var provider in providers)
+            {
+                hotelServices.AddRange(provider.Search(new SearchData()));
+            }
+
+            return hotelServices;
+        }
+
+        /// <summary>
+        /// Itera cada proveedor
+        /// </summary>
+        /// <returns></returns>
+        private IList<IProvider> GetProvidersType()
+        {
+            return new List<IProvider>()
+            {
+                new ActionTravel.Provider(),
+                new Omnibees.Provider()
+            };
         }
 
         private static object GetProviderType()

@@ -29,7 +29,15 @@ namespace Omnibees
                             Price = 50
                         }
                     },
-                    ProviderId = "Este es un hotel de omnibees"
+                    ProviderId = "Este es un hotel de omnibees",
+                    CancellationPolicies = new List<CancellationPolicy>()
+                    {
+                        new CancellationPolicy()
+                        {
+                            BeginPolicy = DateTime.Today.Date,
+                            Price = 120
+                        }
+                    }
                 }
             };
         }
