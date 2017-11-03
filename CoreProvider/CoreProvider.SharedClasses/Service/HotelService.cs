@@ -22,6 +22,9 @@ namespace CoreProvider.SharedClasses.Service
         /// <inheritdoc />
         public Occupancy Occupancy { get; set; }
 
+        /// <inheritdoc />
+        public IList<CancellationPolicy> CancellationPolicies { get; set; }
+
         /// <summary>
         /// Precio del hotel
         /// </summary>
