@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Autofac;
 using CoreProvider.Services.Interface;
 using CoreProvider.SharedClasses.Interface;
 using CoreProvider.SharedClasses.Search;
@@ -8,6 +10,16 @@ namespace CoreProvider.Services
 {
     public class SearchManager : ISearchManager
     {
+        /// <summary>
+        /// Contenedor de clases
+        /// </summary>
+        private readonly IContainer _container;
+
+        public SearchManager()
+        {
+            _container = ContainerConfiguration.Container();
+        }
+
         /// <inheritdoc />
         public IList<HotelService> GetSearch()
         {
@@ -25,24 +37,7 @@ namespace CoreProvider.Services
         /// <inheritdoc />
         public IList<IProvider> GetProvidersType()
         {
-            return new List<IProvider>()
-            {
-                new ActionTravel.Provider(),
-                new Omnibees.Provider()
-            };
-        }
-
-        private static object GetProviderType()
-        {
-            string provider = "actiontravel";
-
-            switch (provider)
-            {
-                case "actiontravel":
-                    return new ActionTravel.Provider();
-                default:
-                    return null;
-            }
+            return _container.Resolve<IEnumerable<IProvider>>().ToList();
         }
     }
 }
