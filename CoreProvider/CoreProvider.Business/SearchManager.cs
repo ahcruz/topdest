@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
+using CoreProvider.Services.Interface;
 using CoreProvider.SharedClasses.Interface;
 using CoreProvider.SharedClasses.Search;
 using CoreProvider.SharedClasses.Service;
 
 namespace CoreProvider.Services
 {
-    public class SearchManager
+    public class SearchManager : ISearchManager
     {
+        /// <inheritdoc />
         public IList<HotelService> GetSearch()
         {
             var providers = GetProvidersType();
@@ -20,11 +22,8 @@ namespace CoreProvider.Services
             return hotelServices;
         }
 
-        /// <summary>
-        /// Itera cada proveedor
-        /// </summary>
-        /// <returns></returns>
-        private IList<IProvider> GetProvidersType()
+        /// <inheritdoc />
+        public IList<IProvider> GetProvidersType()
         {
             return new List<IProvider>()
             {

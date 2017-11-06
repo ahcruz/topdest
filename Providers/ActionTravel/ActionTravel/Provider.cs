@@ -9,7 +9,7 @@ namespace ActionTravel
 {
     public class Provider : IProvider
     {
-        IList<HotelService> IProvider.Search(SearchData data)
+        public IList<HotelService> Search(SearchData data)
         {
             return new List<HotelService>()
             {
