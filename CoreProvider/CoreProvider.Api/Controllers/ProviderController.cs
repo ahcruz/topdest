@@ -1,5 +1,5 @@
 ﻿using System.Web.Http;
-using CoreProvider.Business;
+using CoreProvider.Services;
 
 namespace CoreProvider.Api.Controllers
 {

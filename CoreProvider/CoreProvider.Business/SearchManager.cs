@@ -3,7 +3,7 @@ using CoreProvider.SharedClasses.Interface;
 using CoreProvider.SharedClasses.Search;
 using CoreProvider.SharedClasses.Service;
 
-namespace CoreProvider.Business
+namespace CoreProvider.Services
 {
     public class SearchManager
     {

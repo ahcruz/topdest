@@ -165,9 +165,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoreProvider.Business\CoreProvider.Business.csproj">
+    <ProjectReference Include="..\CoreProvider.Business\CoreProvider.Services.csproj">
       <Project>{4fa3e3d5-48d7-4ec2-89d8-0d317f57b628}</Project>
-      <Name>CoreProvider.Business</Name>
+      <Name>CoreProvider.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\CoreProvider.Domain\CoreProvider.Domain.csproj">
       <Project>{615773ec-c51f-4f17-b85e-6440d56c31a5}</Project>

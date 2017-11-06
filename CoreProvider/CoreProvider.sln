@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreProvider.Domain", "CoreProvider.Domain\CoreProvider.Domain.csproj", "{615773EC-C51F-4F17-B85E-6440D56C31A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreProvider.Business", "CoreProvider.Business\CoreProvider.Business.csproj", "{4FA3E3D5-48D7-4EC2-89D8-0D317F57B628}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreProvider.Services", "CoreProvider.Business\CoreProvider.Services.csproj", "{4FA3E3D5-48D7-4EC2-89D8-0D317F57B628}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreProvider.Api", "CoreProvider.Api\CoreProvider.Api.csproj", "{3008B0B4-B9B8-45C2-8744-657908C209DB}"
 EndProject

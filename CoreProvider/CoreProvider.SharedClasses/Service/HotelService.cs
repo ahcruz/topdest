@@ -44,6 +44,11 @@ namespace CoreProvider.SharedClasses.Service
         /// Id del hotel en el proveedor
         /// </summary>
         public string ProviderId { get; set; }
+
+        /// <summary>
+        /// Nombre del proveedor
+        /// </summary>
+        public string ProviderName { get; set; }
     }
 
     public class Supplement

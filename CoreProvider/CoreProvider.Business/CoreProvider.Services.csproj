@@ -7,8 +7,8 @@
     <ProjectGuid>{4FA3E3D5-48D7-4EC2-89D8-0D317F57B628}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CoreProvider.Business</RootNamespace>
-    <AssemblyName>CoreProvider.Business</AssemblyName>
+    <RootNamespace>CoreProvider.Services</RootNamespace>
+    <AssemblyName>CoreProvider.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
