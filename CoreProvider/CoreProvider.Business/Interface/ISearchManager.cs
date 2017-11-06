@@ -15,11 +15,5 @@ namespace CoreProvider.Services.Interface
         /// </summary>
         /// <returns></returns>
         IList<HotelService> GetSearch();
-
-        /// <summary>
-        /// Itera cada proveedor
-        /// </summary>
-        /// <returns></returns>
-        IList<IProvider> GetProvidersType();
     }
 }

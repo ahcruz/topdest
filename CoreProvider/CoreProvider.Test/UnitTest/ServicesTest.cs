@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CoreProvider.Services;
 using CoreProvider.Services.Interface;
 using CoreProvider.SharedClasses;
 using CoreProvider.SharedClasses.Interface;
@@ -15,39 +16,7 @@ namespace CoreProvider.Test.UnitTest
         [Fact]
         public void Search_success_with_services()
         {
-            var moqOmnibees = new Mock<IProvider>();
-
-            moqOmnibees.Setup(x => x.Search(new SearchData())).Returns(new List<HotelService>()
-            {
-                new HotelService()
-                {
-                    BeginService = DateTime.Today,
-                    EndService = DateTime.Today.AddDays(5),
-                    Occupancy = new Occupancy() {Adults = 2},
-                    Price = 150.75,
-                    Room = new Room() { Description = "Habitacion doble"},
-                    Supplements = new List<Supplement>()
-                    {
-                        new Supplement()
-                        {
-                            Type = SupplementEnum.Included,
-                            Description = "All Inclusive",
-                            Price = 50
-                        }
-                    },
-                    ProviderId = "Omnibees",
-                    CancellationPolicies = new List<CancellationPolicy>()
-                    {
-                        new CancellationPolicy()
-                        {
-                            BeginPolicy = DateTime.Today.Date,
-                            Price = 120
-                        }
-                    }
-                }
-            });
-
-            var moqActionTravel = new Mock<IProvider>();
+            var moqActionTravel = new Mock<IProvider> { CallBase = true };
 
             moqActionTravel.Setup(x => x.Search(new SearchData())).Returns(new List<HotelService>()
             {
@@ -79,14 +48,15 @@ namespace CoreProvider.Test.UnitTest
                 }
             });
 
-            var moqSearchManager = new Mock<ISearchManager>();
-            moqSearchManager.Setup(x => x.GetProvidersType()).Returns(new List<IProvider>()
+            var moqSearchManager = new Mock<SearchManager>(new List<IProvider>()
             {
-                moqActionTravel.Object,
-                moqOmnibees.Object
-            });
+                moqActionTravel.Object
+            })
+            {
+                CallBase = true
+            };
 
-            Assert.Equal(2, moqSearchManager.Object.GetSearch().Count);
+            Assert.Equal(1, moqSearchManager.Object.GetSearch().Count);
 
         }
     }

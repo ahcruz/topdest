@@ -23,5 +23,10 @@ namespace CoreProvider.Services
 
             return builder.Build();
         }
+
+        public static IList<IProvider> GetProviders()
+        {
+            return Container().Resolve<IEnumerable<IProvider>>().ToList();
+        }
     }
 }
