@@ -11,7 +11,7 @@ namespace CoreProvider.Services
     public class SearchManager : ISearchManager
     {
         /// <summary>
-        /// Contenedor de clases
+        /// Lista de proveedores activos
         /// </summary>
         private readonly IList<IProvider> _providers;
 

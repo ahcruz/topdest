@@ -51,6 +51,31 @@ namespace CoreProvider.Test.UnitTest
             Assert.Throws<Exception>(() => moqSearchManager.Object.GetSearch());
         }
 
+        [Fact]
+        public void Search_lauch_exception_with_services()
+        {
+            var provider1 = new Mock<ActionTravel.Provider>().As<IProvider>();
+            provider1.CallBase = true;
+
+            provider1.Setup(x => x.Search(It.IsAny<SearchData>())).Throws(new Exception("Error"));
+
+            var provider2 = new Mock<ActionTravel.Provider>().As<IProvider>();
+            provider2.CallBase = true;
+
+            provider2.Setup(x => x.Search(It.IsAny<SearchData>())).Returns(HotelServices());
+
+            var moqSearchManager = new Mock<SearchManager>(new List<IProvider>
+            {
+                provider1.Object,
+                provider2.Object
+            })
+            {
+                CallBase = true
+            };
+
+            Assert.Equal(1, moqSearchManager.Object.GetSearch().Count);
+        }
+
         /// <summary>        
         /// Genera una lista servicios de hoteles
         /// </summary>
