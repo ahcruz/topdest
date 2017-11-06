@@ -32,6 +32,25 @@ namespace CoreProvider.Test.UnitTest
 
         }
 
+        [Fact]
+        public void Search_error_exception_no_services()
+        {
+            var moqActionTravel = new Mock<ActionTravel.Provider>().As<IProvider>();
+            moqActionTravel.CallBase = true;
+
+            moqActionTravel.Setup(x => x.Search(It.IsAny<SearchData>())).Throws(new Exception("Error"));
+
+            var moqSearchManager = new Mock<SearchManager>(new List<IProvider>
+            {
+                moqActionTravel.Object
+            })
+            {
+                CallBase = true
+            };
+
+            Assert.Throws<Exception>(() => moqSearchManager.Object.GetSearch());
+        }
+
         /// <summary>        
         /// Genera una lista servicios de hoteles
         /// </summary>

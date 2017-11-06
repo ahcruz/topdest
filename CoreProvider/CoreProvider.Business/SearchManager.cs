@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using CoreProvider.Services.Interface;
 using CoreProvider.SharedClasses.Interface;
 using CoreProvider.SharedClasses.Search;
@@ -30,10 +32,19 @@ namespace CoreProvider.Services
 
             foreach (var provider in _providers)
             {
-                hotelServices.AddRange(provider.Search(new SearchData()));
+                try
+                {
+                    hotelServices.AddRange(provider.Search(new SearchData()));
+                }
+                catch (Exception e)
+                {
+                    //TODO Ver de logear el error                    
+                }
             }
 
-            return hotelServices;
+            if (hotelServices.Any()) return hotelServices;
+
+            throw new Exception("No se encontraron hoteles");
         }
     }
 }
