@@ -93,7 +93,7 @@ namespace CoreProvider.Test.UnitTest
             var result = hotelSearchManager.Object.SearchHotelByName("test").Result;
 
             Assert.Equal(3, result.Count);
-        }
+        }        
     }
 }
 
