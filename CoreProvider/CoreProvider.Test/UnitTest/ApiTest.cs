@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CoreProvider.SharedClasses.Interface;
+using CoreProvider.SharedClasses.Search;
+using CoreProvider.Test.Common;
+using Moq;
 using Xunit;
 
 namespace CoreProvider.Test.UnitTest
@@ -12,7 +11,10 @@ namespace CoreProvider.Test.UnitTest
         [Fact]
         public void Search_good_request()
         {
-            
+            var moqActionTravel = new Mock<ActionTravel.Provider>().As<IProvider>();
+            moqActionTravel.CallBase = true;
+
+            moqActionTravel.Setup(x => x.Search(It.IsAny<SearchData>())).Returns(ServiceUtils.HotelServices());
         }
     }
 }

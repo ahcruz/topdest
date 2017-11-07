@@ -9,12 +9,7 @@ namespace CoreProvider.Api.Controllers
 {
     public class ProviderController : ApiController
     {
-        private readonly IContainer _container;
-
-        public ProviderController()
-        {
-            _container = ContainerConfiguration.Container();
-        }
+        private readonly IContainer _container = ContainerConfiguration.Container();
 
         /// <summary>
         /// Busca disponibilidad de hoteles dado un lista

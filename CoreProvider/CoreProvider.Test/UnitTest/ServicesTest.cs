@@ -5,6 +5,7 @@ using CoreProvider.SharedClasses;
 using CoreProvider.SharedClasses.Interface;
 using CoreProvider.SharedClasses.Search;
 using CoreProvider.SharedClasses.Service;
+using CoreProvider.Test.Common;
 using Moq;
 using Xunit;
 
@@ -18,7 +19,7 @@ namespace CoreProvider.Test.UnitTest
             var moqActionTravel = new Mock<ActionTravel.Provider>().As<IProvider>();
             moqActionTravel.CallBase = true;
 
-            moqActionTravel.Setup(x => x.Search(It.IsAny<SearchData>())).Returns(HotelServices());
+            moqActionTravel.Setup(x => x.Search(It.IsAny<SearchData>())).Returns(ServiceUtils.HotelServices());
 
             var moqSearchManager = new Mock<SearchManager>(new List<IProvider>
             {
@@ -62,7 +63,7 @@ namespace CoreProvider.Test.UnitTest
             var provider2 = new Mock<ActionTravel.Provider>().As<IProvider>();
             provider2.CallBase = true;
 
-            provider2.Setup(x => x.Search(It.IsAny<SearchData>())).Returns(HotelServices());
+            provider2.Setup(x => x.Search(It.IsAny<SearchData>())).Returns(ServiceUtils.HotelServices());
 
             var moqSearchManager = new Mock<SearchManager>(new List<IProvider>
             {
@@ -74,43 +75,6 @@ namespace CoreProvider.Test.UnitTest
             };
 
             Assert.Equal(1, moqSearchManager.Object.GetSearch().Count);
-        }
-
-        /// <summary>        
-        /// Genera una lista servicios de hoteles
-        /// </summary>
-        /// <returns></returns>
-        private static List<HotelService> HotelServices()
-        {
-            return new List<HotelService>()
-            {
-                new HotelService()
-                {
-                    BeginService = DateTime.Today,
-                    EndService = DateTime.Today.AddDays(5),
-                    Occupancy = new Occupancy() {Adults = 2},
-                    Price = 150.75,
-                    Room = new Room() { Description = "Habitacion doble"},
-                    Supplements = new List<Supplement>()
-                    {
-                        new Supplement()
-                        {
-                            Type = SupplementEnum.Included,
-                            Description = "All Inclusive",
-                            Price = 50
-                        }
-                    },
-                    ProviderId = "Action Travel",
-                    CancellationPolicies = new List<CancellationPolicy>()
-                    {
-                        new CancellationPolicy()
-                        {
-                            BeginPolicy = DateTime.Today.Date,
-                            Price = 120
-                        }
-                    }
-                }
-            };
         }
     }
 }
