@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using CoreProvider.Repository;
+using CoreProvider.Repository.Interface;
 using CoreProvider.Services;
+using CoreProvider.Services.Interface;
 using CoreProvider.SharedClasses.Interface;
 using CoreProvider.SharedClasses.Search;
 using CoreProvider.Test.Common;
@@ -74,5 +77,23 @@ namespace CoreProvider.Test.UnitTest
 
             Assert.Equal(1, moqSearchManager.Object.GetSearch().Count);
         }
+
+        [Fact]
+        public void HotelSearch_success_with_hotels()
+        {
+            var hotelRepositoryMock = new Mock<HotelRepository>().As<IHotelRepository>();
+            hotelRepositoryMock.CallBase = true;
+
+            hotelRepositoryMock.Setup(x => x.GetHotelByNameAsync(It.IsAny<string>()))
+                .ReturnsAsync(HotelUtils.Hotels);
+
+            var hotelSearchManager = new Mock<HotelSearchManager>(hotelRepositoryMock.Object).As<IHotelSearchManager>();
+            hotelSearchManager.CallBase = true;
+
+            var result = hotelSearchManager.Object.SearchHotelByName("test").Result;
+
+            Assert.Equal(3, result.Count);
+        }
     }
 }
+

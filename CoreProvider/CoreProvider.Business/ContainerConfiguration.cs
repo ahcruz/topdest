@@ -18,10 +18,15 @@ namespace CoreProvider.Services
         {
             var builder = new ContainerBuilder();
 
+            //Providers
             builder.RegisterType<ActionTravel.Provider>().As<IProvider>();
             builder.RegisterType<Omnibees.Provider>().As<IProvider>();
+
+            //Services
             builder.RegisterType<SearchManager>().As<ISearchManager>();
             builder.RegisterType<HotelSearchManager>().As<IHotelSearchManager>();
+
+            //Repositories
             builder.RegisterType<HotelRepository>().As<IHotelRepository>();
 
             return builder.Build();
