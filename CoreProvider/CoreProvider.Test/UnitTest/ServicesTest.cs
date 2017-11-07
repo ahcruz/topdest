@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using CoreProvider.Services;
-using CoreProvider.SharedClasses;
 using CoreProvider.SharedClasses.Interface;
 using CoreProvider.SharedClasses.Search;
-using CoreProvider.SharedClasses.Service;
 using CoreProvider.Test.Common;
 using Moq;
 using Xunit;
