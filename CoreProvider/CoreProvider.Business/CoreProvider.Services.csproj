@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContainerConfiguration.cs" />
+    <Compile Include="HotelSearchManager.cs" />
+    <Compile Include="Interface\IHotelSearchManager.cs" />
     <Compile Include="Interface\ISearchManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchManager.cs" />

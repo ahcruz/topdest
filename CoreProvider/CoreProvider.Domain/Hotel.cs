@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
+using CoreProvider.Domain.Interface;
 using Geo;
 
 namespace CoreProvider.Domain
 {
-    public class Hotel
+    public class Hotel : IEntity
     {
-        /// <summary>
-        /// Id de hotel
-        /// </summary>
+        /// <inheritdoc />        
         public int Id { get; set; }
 
         /// <summary>

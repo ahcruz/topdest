@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Autofac;
+using CoreProvider.Repository;
+using CoreProvider.Repository.Interface;
 using CoreProvider.Services.Interface;
 using CoreProvider.SharedClasses.Interface;
 
@@ -19,6 +21,8 @@ namespace CoreProvider.Services
             builder.RegisterType<ActionTravel.Provider>().As<IProvider>();
             builder.RegisterType<Omnibees.Provider>().As<IProvider>();
             builder.RegisterType<SearchManager>().As<ISearchManager>();
+            builder.RegisterType<HotelSearchManager>().As<IHotelSearchManager>();
+            builder.RegisterType<HotelRepository>().As<IHotelRepository>();
 
             return builder.Build();
         }

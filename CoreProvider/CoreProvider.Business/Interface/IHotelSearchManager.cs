@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoreProvider.Domain;
-using CoreProvider.SharedClasses.Service;
 
 namespace CoreProvider.Services.Interface
 {
-    public interface ISearchManager
+    public interface IHotelSearchManager
     {
         /// <summary>
-        /// Obtiene search
+        /// Retorna hoteles por nombre
         /// </summary>
+        /// <param name="name"></param>
         /// <returns></returns>
-        IList<HotelService> GetSearch();
+        Task<List<Hotel>> SearchHotelByName(string name);
     }
 }

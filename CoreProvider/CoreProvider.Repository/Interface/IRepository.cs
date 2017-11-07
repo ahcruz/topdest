@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CoreProvider.Domain.Interface;
 
 namespace CoreProvider.Repository.Interface
 {

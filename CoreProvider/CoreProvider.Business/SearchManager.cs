@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using CoreProvider.Domain;
 using CoreProvider.Services.Interface;
 using CoreProvider.SharedClasses.Interface;
 using CoreProvider.SharedClasses.Search;

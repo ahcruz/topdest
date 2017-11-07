@@ -1,4 +1,4 @@
-﻿namespace CoreProvider.Repository.Interface
+﻿namespace CoreProvider.Domain.Interface
 {
     public interface IEntity
     {
